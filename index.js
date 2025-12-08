@@ -21,7 +21,7 @@ function drawCard(index, task){
             <div class="menu-bar  ${task.status}">...</div>
             <ul class="task-menu-items">
                 <li><a id="edit-task-${index}">Edit</a></li>
-                <li><a id="delete-task-${index}">Delete</a></li>
+                <li><a id="delete-task-${index}" onclick="deleteTask(${index})"; return false;">Delete</a></li>
             </ul>
         </div>
         ${task.description}
@@ -82,4 +82,9 @@ function createTask(){
     drawAllCards();
 }
 
+function deleteTask(indexNumber){
+    tasks.splice(indexNumber, 1);
+
+    drawAllCards();
+}
 drawAllCards();
